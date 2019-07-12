@@ -1,4 +1,4 @@
-package com.reactnativetemplateproject;
+package com.dailyreportmaker;
 
 import android.app.Application;
 
