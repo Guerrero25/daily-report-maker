@@ -1,25 +1,24 @@
 import * as React from "react";
 import { useEffect } from "react";
 /* Native Base Components */
-import { Text } from "native-base";
+import { Spinner } from "native-base";
 /* UI Components */
 import Layout from "../../../components/UI/Layout";
 /* Services */
 import NavigationService from "../../../services/NavigationService";
+/* Assets */
+import E43Logo from "../../../assets/images/e43-logo.svg";
 
-export interface ScreenLoadingProps {}
-
-const ScreenLoading: React.SFC<ScreenLoadingProps> = () => {
+const ScreenLoading = () => {
   useEffect(() => {
     setTimeout(() => {
-      NavigationService.navigate("App");
+      NavigationService.navigate("Auth");
     }, 1500);
   }, []);
 
   return (
-    <Layout>
-      <Text>Screen Loading</Text>
-      <Text>Loading...</Text>
+    <Layout showContent={false} headerContent={<E43Logo width={200} height={70} />}>
+      <Spinner color="white" />
     </Layout>
   );
 };

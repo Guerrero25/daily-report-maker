@@ -8,7 +8,7 @@ import NavigationService from "../../../services/NavigationService";
 
 export interface ScreenLoginProps {}
 
-const ScreenLogin: React.SFC<ScreenLoginProps> = () => {
+const ScreenLogin = () => {
   return (
     <Layout>
       <Text>Screen Login</Text>
@@ -21,6 +21,10 @@ const ScreenLogin: React.SFC<ScreenLoginProps> = () => {
       </Button>
     </Layout>
   );
+};
+
+ScreenLogin.navigationOptions = {
+  header: null
 };
 
 export default ScreenLogin;
