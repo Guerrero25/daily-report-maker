@@ -22,7 +22,10 @@ const Layout = ({
     <View
       style={[
         styles.container,
-        { backgroundColor: !showContent ? bgHeader : "white" }
+        {
+          backgroundColor: !showContent ? bgHeader : "white",
+          flex: showContent ? 0 : 1
+        }
       ]}
     >
       <View
@@ -50,7 +53,6 @@ export default Layout;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     alignItems: "center",
     justifyContent: "center"
   },
@@ -65,7 +67,6 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start"
   },
   content: {
-    flex: 1,
     marginHorizontal: 20,
     marginBottom: 30,
     marginTop: -115,
