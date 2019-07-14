@@ -61,7 +61,8 @@ const styles = StyleSheet.create({
   },
   headerWithContent: {
     height: 290,
-    paddingTop: 40
+    paddingTop: 60,
+    justifyContent: "flex-start"
   },
   content: {
     flex: 1,
