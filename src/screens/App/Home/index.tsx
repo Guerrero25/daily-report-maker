@@ -23,8 +23,13 @@ const Home = () => {
 };
 
 Home.navigationOptions = {
-  tabBarIcon: ({ focused }: TabBarIconProps) => (
-    <Icon name="home" active={focused} />
+  tabBarIcon: ({ focused, tintColor }: TabBarIconProps) => (
+    <Icon
+      type="FontAwesome5"
+      name="home"
+      active={focused}
+      style={{ color: tintColor }}
+    />
   )
 };
 

@@ -3,6 +3,8 @@ import { createBottomTabNavigator } from "react-navigation";
 /* Screens */
 import ScreenAppHome from "./Home";
 import ScreenAppDetails from "./Details";
+/* Constants */
+import { colors } from "../../constants";
 
 const ScreenAppNavigator = createBottomTabNavigator(
   {
@@ -12,7 +14,12 @@ const ScreenAppNavigator = createBottomTabNavigator(
   {
     navigationOptions: { header: null },
     tabBarOptions: {
-      style: { paddingHorizontal: 7, paddingVertical: 7, height: 60 }
+      style: {
+        paddingHorizontal: 7,
+        paddingVertical: 7,
+        height: 60
+      },
+      activeTintColor: colors.primaryColor
     }
   }
 );

@@ -23,8 +23,13 @@ const Details = () => {
 };
 
 Details.navigationOptions = {
-  tabBarIcon: ({ focused }: TabBarIconProps) => (
-    <Icon type="FontAwesome5" name="info-circle" active={focused} />
+  tabBarIcon: ({ focused, tintColor }: TabBarIconProps) => (
+    <Icon
+      type="FontAwesome5"
+      name="info-circle"
+      active={focused}
+      style={{ color: tintColor }}
+    />
   )
 };
 
