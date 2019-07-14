@@ -4,7 +4,7 @@ import { useMemo } from "react";
 /* Types */
 import { ReduxActions } from "../types";
 
-export function useActions(actions: ReduxActions, deps?: []) {
+export function useActions(actions: ReduxActions, deps?: any[]): any {
   const dispatch = useDispatch();
 
   return useMemo(

@@ -1,1 +1,1 @@
-export { login as loginAction } from "./user";
+export { changeGitlabUsername as loginAction } from "./user";

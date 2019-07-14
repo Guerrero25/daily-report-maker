@@ -1,11 +1,11 @@
 import { combineReducers } from "redux";
 /* Types */
 import { ReduxActionPayload } from "../../../types";
-import { LOGIN } from "../../types";
+import { CHANGE_GITLAB_USERNAME } from "../../types";
 
 const currentUsername = (state: string = "", action: ReduxActionPayload) => {
   switch (action.type) {
-    case LOGIN:
+    case CHANGE_GITLAB_USERNAME:
       return action.data;
 
     default:

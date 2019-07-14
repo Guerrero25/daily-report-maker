@@ -1,1 +1,1 @@
-export const LOGIN = "LOGIN";
+export const CHANGE_GITLAB_USERNAME = "CHANGE_GITLAB_USERNAME";

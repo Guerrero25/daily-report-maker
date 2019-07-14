@@ -5,11 +5,20 @@ import { StyleSheet } from "react-native";
 import { Form, Item, Picker, Icon, Label, Button, Text } from "native-base";
 /* Constants */
 import { colors } from "../../../../constants";
+/* Services */
+import NavigationService from "../../../../services/NavigationService";
+/* Redux Actions */
+import { changeGitlabUsername } from "../../../../redux/actions/user";
+/* Utils */
+import { useActions } from "../../../../utils/hooks";
 
 type AuthLoginFormProps = {};
 
 function AuthLoginForm({  }: AuthLoginFormProps) {
-  const [selectedGitlabUsername, setSelectedGitlabUsername] = useState(null);
+  const [selectedGitlabUsername, setSelectedGitlabUsername] = useState(
+    "@guerrero7"
+  );
+  const changeGitlabUsernameAction = useActions(changeGitlabUsername);
 
   return (
     <Form>
@@ -36,11 +45,20 @@ function AuthLoginForm({  }: AuthLoginFormProps) {
           <Picker.Item label="Ivan Ospino" value="@Ivan_Ospino" />
         </Picker>
       </Item>
-      <Button style={styles.action}>
+      <Button
+        style={styles.action}
+        disabled={!selectedGitlabUsername}
+        onPress={handleSubmitLogin}
+      >
         <Text>Log In</Text>
       </Button>
     </Form>
   );
+
+  function handleSubmitLogin() {
+    changeGitlabUsernameAction(selectedGitlabUsername);
+    NavigationService.navigate("App");
+  }
 }
 
 export default AuthLoginForm;

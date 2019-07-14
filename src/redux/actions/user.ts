@@ -1,9 +1,9 @@
-import { LOGIN } from "../types";
+import { CHANGE_GITLAB_USERNAME } from "../types";
 import { ReduxActionPayload } from "../../types";
 
-export function login(username: string): ReduxActionPayload {
+export function changeGitlabUsername(username: string): ReduxActionPayload {
   return {
-    type: LOGIN,
+    type: CHANGE_GITLAB_USERNAME,
     data: username
   };
 }

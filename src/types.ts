@@ -5,8 +5,9 @@ export type ReduxActionPayload = {
   data?: any;
 };
 
-export type ReduxThunk = (dispatch: Dispatch) => ReduxActionPayload;
-export type ReduxAction = () => ReduxActionPayload | ReduxThunk;
+export type ReduxActionThunk = (dispatch: Dispatch) => ReduxActionPayload;
+export type ReduxActionFunction = (...args: any[]) => ReduxActionPayload;
+export type ReduxAction = ReduxActionFunction | ReduxActionThunk;
 export type ReduxActions = ReduxAction[] | ReduxAction;
 
 export type User = {} | null;
