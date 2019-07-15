@@ -3,7 +3,7 @@ import React from "react";
 /* Native Base Theme Config */
 import { StyleProvider } from "native-base";
 import getNativeBaseStyle from "./native-base-theme/components";
-import materialConfig from "./native-base-theme/variables/material";
+import materialConfig from "./native-base-theme/variables/myTheme";
 
 /* Redux configuration */
 import { Provider as StoreProvider } from "react-redux";

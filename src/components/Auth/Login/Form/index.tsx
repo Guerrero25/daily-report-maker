@@ -46,6 +46,7 @@ function AuthLoginForm({  }: AuthLoginFormProps) {
         </Picker>
       </Item>
       <Button
+        block
         style={styles.action}
         disabled={!selectedGitlabUsername}
         onPress={handleSubmitLogin}
@@ -70,7 +71,6 @@ const styles = StyleSheet.create({
     marginBottom: 40
   },
   action: {
-    width: "100%",
     justifyContent: "center"
   }
 });
