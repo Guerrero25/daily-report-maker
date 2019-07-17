@@ -2,9 +2,9 @@ import * as React from "react";
 import { useState } from "react";
 import { StyleSheet } from "react-native";
 /* Native Base */
-import { Form, Item, Picker, Icon, Label, Button, Text } from "native-base";
-/* Constants */
-import { colors } from "../../../../constants";
+import { Form, Item, Label, Button, Text } from "native-base";
+/* UI Components */
+import MultiSelect from "../../../UI/MultiSelect";
 /* Services */
 import NavigationService from "../../../../services/NavigationService";
 /* Redux Actions */
@@ -15,35 +15,36 @@ import { useActions } from "../../../../utils/hooks";
 type AuthLoginFormProps = {};
 
 function AuthLoginForm({  }: AuthLoginFormProps) {
-  const [selectedGitlabUsername, setSelectedGitlabUsername] = useState(
+  const [selectedGitlabUsername, setSelectedGitlabUsername] = useState([
     "@guerrero7"
-  );
+  ]);
+  const [selectedProjects, setSelectedProjects] = useState([]);
   const changeGitlabUsernameAction = useActions(changeGitlabUsername);
 
   return (
     <Form>
       <Item style={styles.item} picker>
+        <Label>Projects:</Label>
+
+        <MultiSelect
+          items={[{ id: 2, name: "Fleks" }]}
+          placeholder="Select your projects"
+          searchPlaceholder="Search..."
+          value={selectedProjects}
+          onChange={newValues => setSelectedProjects(newValues)}
+        />
+      </Item>
+      <Item style={styles.item} picker>
         <Label>Gitlab username:</Label>
-        <Picker
-          mode="dropdown"
-          note={false}
-          iosIcon={<Icon name="arrow-down" />}
-          style={{ width: "100%" }}
+
+        <MultiSelect
+          single
+          items={[{ id: 3, name: "@guerrero7" }]}
           placeholder="Select your username"
-          placeholderStyle={{ color: colors.primaryColor }}
-          placeholderIconColor={colors.primaryColor}
-          selectedValue={selectedGitlabUsername}
-          onValueChange={value => setSelectedGitlabUsername(value)}
-        >
-          <Picker.Item label="Omar Guerrero" value="@guerrero7" />
-          <Picker.Item label="Carlos Castillo" value="@cmaxhm" />
-          <Picker.Item label="Charly Cerdeño" value="@ccardenoc" />
-          <Picker.Item label="Ever  Cabarcas" value="@EverCabarcasM" />
-          <Picker.Item label="Jhonathan Cantillo" value="@jcantillog" />
-          <Picker.Item label="Leonardo Mira" value="@leonardozn" />
-          <Picker.Item label="Luis Morales" value="@luismoralesp" />
-          <Picker.Item label="Ivan Ospino" value="@Ivan_Ospino" />
-        </Picker>
+          searchPlaceholder="Search..."
+          value={selectedGitlabUsername}
+          onChange={newValues => setSelectedGitlabUsername(newValues)}
+        />
       </Item>
       <Button
         block
