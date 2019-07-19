@@ -3,13 +3,15 @@ import { createBottomTabNavigator } from "react-navigation";
 /* Screens */
 import ScreenAppHome from "./Home";
 import ScreenAppDetails from "./Details";
+import ScreenAppSettings from "./Settings";
 /* Constants */
 import { colors } from "../../constants";
 
 const ScreenAppNavigator = createBottomTabNavigator(
   {
     AppHome: ScreenAppHome,
-    AppDetails: ScreenAppDetails
+    AppDetails: ScreenAppDetails,
+    AppSettings: ScreenAppSettings
   },
   {
     navigationOptions: { header: null },
