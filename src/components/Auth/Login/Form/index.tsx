@@ -8,7 +8,7 @@ import MultiSelect, { SelectItem } from "../../../UI/MultiSelect";
 /* Services */
 import NavigationService from "../../../../services/NavigationService";
 /* Redux Actions */
-import { changeGitlabUsername } from "../../../../redux/actions/user";
+import { initConfig } from "../../../../redux/actions/user";
 /* Utils */
 import { useActions } from "../../../../utils/hooks";
 /* Services */
@@ -24,7 +24,7 @@ function AuthLoginForm({  }: AuthLoginFormProps) {
   const [projects, setProjects] = useState<SelectItem[]>([]);
   const [usernames, setUsernames] = useState<SelectItem[]>([]);
   const [selectedProjects, setSelectedProjects] = useState([]);
-  const changeGitlabUsernameAction = useActions(changeGitlabUsername);
+  const loginAction = useActions(initConfig);
 
   useEffect(() => {
     ProjectService.getProjects().then(gitlabProjects => {
@@ -87,7 +87,7 @@ function AuthLoginForm({  }: AuthLoginFormProps) {
   );
 
   function handleSubmitLogin() {
-    changeGitlabUsernameAction(selectedGitlabUsername);
+    loginAction(selectedGitlabUsername, selectedProjects);
     NavigationService.navigate("App");
   }
 }
