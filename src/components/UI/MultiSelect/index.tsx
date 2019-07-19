@@ -6,7 +6,7 @@ import { Spinner, Badge } from "native-base";
 /* Constants */
 import { colors } from "../../../constants";
 
-type SelectItem = {
+export type SelectItem = {
   id: number;
   name: string;
   children?: SelectItem[];
