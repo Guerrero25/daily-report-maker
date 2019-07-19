@@ -40,6 +40,8 @@ export default {
   iconSizeSmall: 18,
   cardDefaultBg: "#fff",
   cardBorderColor: "#ccc",
+  cardBorderRadius: 8,
+  cardItemPadding: platform === "ios" ? 10 : 15,
   CheckboxRadius: 100,
   CheckboxBorderWidth: 2,
   CheckboxPaddingLeft: 2,
