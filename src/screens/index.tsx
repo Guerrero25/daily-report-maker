@@ -13,6 +13,9 @@ import ScreenApp from "./App";
 /* Navigation Services to Navigation Actions */
 import NavigationService from "../services/NavigationService";
 
+/* Utils */
+import { getPersistenceFunctions } from "../utils/helpers";
+
 const AppStack = createStackNavigator({ Home: ScreenApp });
 const AuthStack = createStackNavigator({ SignIn: ScreenAuthLogIn });
 
@@ -34,6 +37,7 @@ class ScreenRoot extends Component {
     return (
       <NavigationContainer
         ref={ref => NavigationService.setTopLevelNavigator(ref)}
+        {...getPersistenceFunctions()}
       />
     );
   }
