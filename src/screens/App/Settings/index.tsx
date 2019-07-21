@@ -1,37 +1,15 @@
 import * as React from "react";
 import { TabBarIconProps, NavigationNavigatorProps } from "react-navigation";
 /* Native Base Components */
-import { Icon, Button, Text } from "native-base";
+import { Icon } from "native-base";
 /* UI Components */
 import LayoutHeader from "../../../components/UI/LayoutHeader";
-/* Actions */
-import { changeGitlabUsername } from "../../../redux/actions/user";
-/* Services */
-import NavigationService from "../../../services/NavigationService";
-/* Utils */
-import { colors } from "../../../constants";
-import { useActions } from "../../../utils/hooks";
+import SettingList from "../../../components/App/Settings/List";
 
 const Home = ({  }: NavigationNavigatorProps) => {
-  const logoutAction = useActions(changeGitlabUsername);
-
   return (
     <LayoutHeader title="Settings">
-      <Button
-        block
-        transparent
-        color={colors.dangerColor}
-        icon
-        iconLeft
-        danger
-        onPress={() => {
-          logoutAction("");
-          NavigationService.navigate("Auth");
-        }}
-      >
-        <Icon type="FontAwesome5" name="sign-out-alt" />
-        <Text>Log out</Text>
-      </Button>
+      <SettingList />
     </LayoutHeader>
   );
 };
