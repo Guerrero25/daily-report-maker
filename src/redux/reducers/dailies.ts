@@ -1,12 +1,9 @@
 import { combineReducers } from "redux";
 /* Types */
 import { ReduxActionPayload, DailyReport } from "../../types";
-import { CREATE_DAILY } from "../types";
+import { CREATE_DAILY, LOGOUT } from "../types";
 
-const reports = (
-  state: DailyReport[] = [],
-  action: ReduxActionPayload
-) => {
+const reports = (state: DailyReport[] = [], action: ReduxActionPayload) => {
   switch (action.type) {
     case CREATE_DAILY:
       const newDaily: DailyReport = {
@@ -16,6 +13,9 @@ const reports = (
       };
 
       return [newDaily];
+
+    case LOGOUT:
+      return [];
 
     default:
       return state;

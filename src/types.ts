@@ -5,7 +5,7 @@ export type ReduxActionPayload = {
   data?: any;
 };
 
-export type ReduxActionThunk = (dispatch: Dispatch) => ReduxActionPayload;
+export type ReduxActionThunk = (dispatch: Dispatch<ReduxActionPayload>) => void;
 export type ReduxActionFunction = (...args: any[]) => ReduxActionPayload;
 export type ReduxAction = ReduxActionFunction | ReduxActionThunk;
 export type ReduxActions = ReduxAction[] | ReduxAction;
