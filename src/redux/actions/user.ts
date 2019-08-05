@@ -1,8 +1,8 @@
-import { CHANGE_GITLAB_USERNAME, LOGOUT } from "../types";
 import { Dispatch } from "redux";
 /* Services */
 import NavigationService from "../../services/NavigationService";
 /* Types */
+import { CHANGE_GITLAB_USERNAME, LOGOUT, INIT_CONFIG } from "../types";
 import { ReduxActionPayload, ReduxActionThunk } from "../../types";
 
 export function changeGitlabUsername(username: string): ReduxActionPayload {
@@ -17,7 +17,7 @@ export function initConfig(
   projects: string[]
 ): ReduxActionPayload {
   return {
-    type: CHANGE_GITLAB_USERNAME,
+    type: INIT_CONFIG,
     data: { username, projects }
   };
 }

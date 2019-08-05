@@ -12,8 +12,10 @@ export type ReduxActions = ReduxAction[] | ReduxAction;
 
 export type User = {} | null;
 export type Issue = {
+  id: number;
+  title: string;
   state: string;
-  labels: string[];
+  labels: IssueLabel[];
   web_url: string;
   assignee: {
     state: "active" | "";
@@ -24,8 +26,31 @@ export type Issue = {
     username: string;
   };
 };
+export type IssueLabel = {
+  name: string;
+  color: string;
+  text_color: string;
+  description: string;
+};
+
 export type DailyReport = {
   date: string;
+  developed?: Issue[];
+  tested?: Issue[];
+  created?: Issue[];
+};
+
+export type Filters = {
+  [key: string]: {
+    key: string;
+    suffix?: string;
+    prefix?: string;
+    value: string;
+  };
+};
+
+export type NewReport = {
   developed: Issue[];
   tested: Issue[];
+  created: Issue[];
 };

@@ -4,6 +4,8 @@ import { useSelector } from "react-redux";
 import moment from "moment";
 /* Native Base Components */
 import { Card, CardItem, Text, Body, Icon, Right, Button } from "native-base";
+/* Components */
+import ReportButton from "../ReportButton";
 /* Types */
 import { DailyReport } from "../../../../types";
 import { colors } from "../../../../constants";
@@ -32,26 +34,31 @@ const ResumeStatus = ({  }: LayoutProps) => {
           <Text>Did you already do your daily report?</Text>
         </Body>
         <Right style={{ flexDirection: "row", justifyContent: "flex-end" }}>
-          <Button transparent icon disabled={!wasDailyReportMade}>
-            <Icon
-              type="FontAwesome5"
-              name="copy"
-              style={[
-                styles.actionIcon,
-                wasDailyReportMade ? null : styles.actionIconDisabled
-              ]}
-            />
-          </Button>
-          <Button transparent icon disabled={!wasDailyReportMade}>
-            <Icon
-              type="FontAwesome5"
-              name="share-alt"
-              style={[
-                styles.actionIcon,
-                wasDailyReportMade ? null : styles.actionIconDisabled
-              ]}
-            />
-          </Button>
+          {wasDailyReportMade && (
+            <Button transparent icon disabled={!wasDailyReportMade}>
+              <Icon
+                type="FontAwesome5"
+                name="copy"
+                style={[
+                  styles.actionIcon,
+                  wasDailyReportMade ? null : styles.actionIconDisabled
+                ]}
+              />
+            </Button>
+          )}
+          {wasDailyReportMade && (
+            <Button transparent icon disabled={!wasDailyReportMade}>
+              <Icon
+                type="FontAwesome5"
+                name="share-alt"
+                style={[
+                  styles.actionIcon,
+                  wasDailyReportMade ? null : styles.actionIconDisabled
+                ]}
+              />
+            </Button>
+          )}
+          {!wasDailyReportMade && <ReportButton />}
         </Right>
       </CardItem>
     </Card>

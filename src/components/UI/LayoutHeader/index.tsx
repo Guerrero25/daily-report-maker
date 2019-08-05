@@ -9,7 +9,8 @@ import {
   Left,
   Body,
   Right,
-  Title
+  Title,
+  Footer
 } from "native-base";
 
 export interface LayoutProps {
@@ -17,9 +18,16 @@ export interface LayoutProps {
   title?: string;
   left?: ReactNode;
   right?: ReactNode;
+  footer?: ReactNode;
 }
 
-const LayoutHeader = ({ children, title, left, right }: LayoutProps) => {
+const LayoutHeader = ({
+  children,
+  title,
+  left,
+  right,
+  footer
+}: LayoutProps) => {
   return (
     <Container>
       <Header>
@@ -29,7 +37,8 @@ const LayoutHeader = ({ children, title, left, right }: LayoutProps) => {
         </Body>
         <Right>{right}</Right>
       </Header>
-      <Content>{children}</Content>
+      <Content style={{ backgroundColor: "#fff" }}>{children}</Content>
+      {footer && <Footer style={{ backgroundColor: "white" }}>{footer}</Footer>}
     </Container>
   );
 };
